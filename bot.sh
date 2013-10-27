@@ -11,11 +11,13 @@ do
 	JOIN="http://www.qcue.me/api/incoming_sms?to=447860033153&from=44551234567"$NUMBER"&content=BACN&msg_id=AB_12345"
 	REG="http://www.qcue.me/api/incoming_sms?to=447860033153&from=44551234567"$NUMBER"&content=NAME+"$NAME"&msg_id=AB_12345"
 
-	`curl $JOIN`
-	`curl $REG`
+	echo "Queing "$NAME" with number "$NUMBER
+
+	`curl $JOIN > /dev/null 2>&1`
+	`curl $REG > /dev/null 2>&1`
 
 	SLEEP=$RANDOM
-	let "SLEEP %= 30"
+	let "SLEEP %= 25"
 
 	echo "Sleeping for "$SLEEP" seconds"
 
